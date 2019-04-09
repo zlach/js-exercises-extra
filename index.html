@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Palindrome Checker</title>
+	<style>
+		#answer{
+			transition: color 2s ease 0s;
+		}
+	</style>
+</head>
+<body>
+Type in a palindrome or whatever and then press "enter" <input id="input" type="text" onkeypress="enterPal(event);">
+
+
+<div id="answer"></div>
+
+<script>
+
+function enterPal(e){
+	console.log(e)
+	console.log(e.keyCode)
+	if (e.keyCode == 13){
+		var str = document.getElementById("input").value;
+		isPal(str);
+		document.getElementById("input").value ="";
+	}
+}
+
+function isPal(string) {
+
+	var s = string.split('');
+	var x = s.length - 1;
+
+	if (s.length === 1 || s.length === 0){
+		var answer = document.getElementById('answer');
+		answer.innerHTML = "True";
+		return true;
+	} else if (s[0] === s[x]){
+		s.splice(x, 1);
+		s.splice(0, 1);
+		return isPal(s.join(''));
+	} else {
+		var answer = document.getElementById('answer');
+		answer.innerHTML = "False";
+		return false;
+	}
+}
+
+</script>
+<script src="script2.js"></script>
+<script src="script3.js"></script>
+<script src="script4.js"></script>
+<script src="script5.js"></script>
+<script src="script6.js"></script>
+<script src="script7.js"></script>
+</body>
+</html>
